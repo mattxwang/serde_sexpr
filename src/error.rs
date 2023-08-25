@@ -29,7 +29,7 @@ pub enum Error {
 impl Display for Error {
     fn fmt(&self, fmt: &mut Formatter) -> FmtResult {
         match self {
-            Error::Custom(s) => fmt.write_str(&s),
+            Error::Custom(s) => fmt.write_str(s),
             Error::Io(err) => err.fmt(fmt),
             Error::Invalid(ty, val) => write!(fmt, "{} is not a {}", val, ty),
             Error::ParseFailed => fmt.write_str("parsing s-expression failed"),
