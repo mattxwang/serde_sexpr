@@ -6,7 +6,7 @@ proptest! {
     fn parse_of_to_string(v: Value) {
         let s = dbg!(v.to_string());
         let r = s.parse::<Value>();
-        prop_assert!(r.is_ok());
+        prop_assert!(r.is_ok(), "Parse failed for {v}");
         let v2 = r.unwrap();
         prop_assert_eq!(v, v2);
     }
